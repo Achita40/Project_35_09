@@ -1,6 +1,6 @@
 @extends('layouts.masterauthen')
 @section('name')
-    
+
 <div class="card o-hidden border-0 shadow-lg my-5">
   <div class="card-body p-0">
       <!-- Nested Row within Card Body -->
@@ -26,7 +26,7 @@
                       </div>
 
                       <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
-                   
+
                       <a href="{{route('register')}}" class="btn btn-success btn-user btn-block">
                           Create an Account!
                       </a>
@@ -34,10 +34,14 @@
                       <div class="text-center">
                         <a class="small" href="{{route('password.request')}}">Forgot Password?</a>
                     </div>
-                      
+
+                    <div class="text-center">
+                        <a class="small" href="http://127.0.0.1:8000/">Back Home</a>
+                    </div>
+
                   </form>
-                  
-                  
+
+
               </div>
           </div>
       </div>
