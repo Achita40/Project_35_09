@@ -35,7 +35,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
 
                 </div>
-                <div   div class="sidebar-brand-text mx-3">Pakkred Hut Admin</div>          
+                <div   div class="sidebar-brand-text mx-3">Pakkred Hut Admin</div>
             </a>
 
             <!-- Divider -->
@@ -65,7 +65,7 @@
             </li>
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
-           
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -123,7 +123,7 @@
                             </div>
                         </li>
 
-                        
+
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -164,6 +164,8 @@
 
                 </nav>
                 <!-- End of Topbar -->
+
+                @yield('text')
 
                 @yield('cont')
 

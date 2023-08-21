@@ -1,6 +1,6 @@
 @extends('layouts.masterbackend')
 @section('text')
-<h1 style="font:bold; color:#fff;">DataTables Example</h1><br/>
+<h1 style="text-dark">DataTables Example</h1><br/>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
