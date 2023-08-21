@@ -65,7 +65,9 @@
 
       @yield('popular-item')
 
-      @yield('member-item')
+      @yield('contack-item')
+
+      @yield('member1-item')
 
       @yield('footter-item')
 

@@ -16,8 +16,12 @@
     @include('frontend.popular-item')
 @endsection
 
-@section('member-item')
-    @include('frontend.member-item')
+@section('contack-item')
+    @include('frontend.contack-item')
+@endsection
+
+@section('member1-item')
+    @include('frontend.member1-item')
 @endsection
 
 @section('footter-item')
