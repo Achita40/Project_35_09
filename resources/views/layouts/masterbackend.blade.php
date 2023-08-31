@@ -66,14 +66,19 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
 
+                <!-- Nav Item -category -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('cat_index')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>category</span></a>
+            </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+
 
 
 
@@ -165,9 +170,11 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                @yield('text')
+                <div class="container-fluid">
+                    @yield('text')
+                </div>
 
-                @yield('cont')
+
 
             </div>
             <!-- End of Main Content -->
