@@ -14,6 +14,8 @@
                         <tr>
                             <th>#</th>
                             <th>Product Name</th>
+                            <th>Product image</th>
+                            <th>Product type</th>
                             <th>Product Price</th>
                             <th>Product Detail</th>
                             <th>Action</th>
@@ -32,7 +34,33 @@
                                         {{ $product->product_name }}
                                     </td>
                                     <td>
-                                        {{ number_format($product->product_price) }}
+                                        @if($product->image)
+                                            <img src="{{ asset('images/'.$product->image) }}" width="200px" alt="." class="img-thumbnail" />
+                                        @else
+                                            <span class="text-danger">
+                                                {{ __('ไม่มีรูปภาพ') }}
+                                            </span>
+                                        @endif
+                                    </td>
+                                    <td typeproductd>
+                                        {{
+                                            !empty($product->typeproduct) ?
+
+                                                !empty($product->Type->name) ?
+                                                    $product->Type->name
+                                                : 'ไม่มีเภทที่ระบุ'
+
+                                            : 'ไม่ได้ระบุประเภท'
+                                        }}
+                                    </td>
+                                    <td>
+                                        {{
+                                            number_format(
+                                                !empty($product->product_price) ?
+                                                    $product->product_price
+                                                : 0
+                                            )
+                                        }}
                                     </td>
                                     <td>
                                         {{ $product->product_detail }}
@@ -61,7 +89,7 @@
                                                     <span aria-hidden="true">&times;</span>
                                                   </button>
                                                 </div>
-                                                <form method="post" action="{{ route('pro.update') }}">
+                                                <form method="post" action="{{ route('pro.update', $product->id) }}" enctype="multipart/form-data">
                                                     @csrf
                                                     <input type="hidden" name="product_id" value="{{ $product->id }}" />
                                                     <div class="modal-body">
@@ -89,16 +117,32 @@
                                                             <input type="text" name="product_detail" class="form-control" value="{{ $product->product_detail }}" />
                                                         </div>
                                                          {{-- EndDetail --}}
-                                                    </div>
 
-                                                    {{-- <div class="form-group mb-3">
-                                                        <label class="exampleInputPassword1">ประเภทสินค้า</label>
-                                                        <select class="form-select form-control " aria-label="กรุณาเลือกประเภทสินค้า">
-                                                            <option selected>กรุณาเลือกประเภทสินค้า</option>
-                                                            <option value="1">อาหาร</option>
-                                                            <option value="2">เครื่องดื่ม</option>
-                                                          </select>
-                                                    </div> --}}
+                                                         {{-- Type --}}
+                                                         <div class="form-group mb-3">
+                                                            <label class="exampleInputPassword1">ประเภทสินค้า</label>
+                                                            <select class="form-select form-control " name="typeproduct" aria-label="กรุณาเลือกประเภทสินค้า">
+                                                                @if (empty($product->typeproduct))
+                                                                    <option selected>กรุณาเลือกประเภทสินค้า</option>
+                                                                @endif
+
+                                                                @foreach ($product_type as $type)
+                                                                    <option value="{{ $type->id }}" {{ ($product->typeproduct == $type->id) ? 'selected' : '' }}>
+                                                                        {{ $type->name }}
+                                                                    </option>
+                                                                @endforeach
+
+                                                              </select>
+                                                        </div>
+                                                         {{-- ./Type --}}
+
+                                                         {{-- Image --}}
+                                                         <div class="mb-3">
+                                                            <label for="image" class="form-label">รูปภาพสินค้า</label>
+                                                            <input type="file" class="form-control" id="image" name="image">
+                                                         </div>
+                                                         {{-- ./Image --}}
+                                                    </div>
 
                                                      {{--save c --}}
                                                     <div class="modal-footer">

@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -14,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('product_name')->nullable();
-            $table->longText('product_image')->nullable();
-            $table->float('product_price', 8, 2)->default(0);
-            
-            $table->longText('product_detail')->nullable();
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+
+            $table->bigInteger('typeproduct')
+                ->nullable()
+                ->index()
+            ->after('product_price');
+
         });
     }
 
@@ -34,5 +32,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('products');
     }
-
 };

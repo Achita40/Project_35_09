@@ -34,7 +34,8 @@ Route::get('admin/user/index', [UserController::class, 'index'])->name('us_index
 // product
 Route::get('admin/product/index', [App\Http\Controllers\Admin\ProductsControl::class, 'index'])->name('pro_index');
 Route::get('admin/product/create', [App\Http\Controllers\Admin\ProductsControl::class, 'create'])->name('pro.create');
-Route::post('admin/product/update', [App\Http\Controllers\Admin\ProductsControl::class, 'update'])->name('pro.update');
+Route::post('admin/product/insert',[App\Http\Controllers\Admin\ProductsControl::class, 'insert']);
+Route::post('admin/product/{id}/update', [App\Http\Controllers\Admin\ProductsControl::class, 'update'])->name('pro.update');
 Route::get('admin/product/{id}/delete', [App\Http\Controllers\Admin\ProductsControl::class, 'destroy'])->name('pro.delete');
 
 // category

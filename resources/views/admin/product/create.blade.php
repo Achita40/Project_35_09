@@ -6,7 +6,8 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">เพิ่มสินค้า</h6>
         </div>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{url('admin/product/insert')}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="card-body">
                 <div class="mb-3">
                     <label for="name" class="form-label">ชื่อสินค้า</label>
@@ -23,7 +24,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">ประเภทสินค้า</label>
-                    <select class="form-select form-control " aria-label="กรุณาเลือกประเภทสินค้า">
+                    <select class="form-select form-control " name="typeproduct" aria-label="กรุณาเลือกประเภทสินค้า">
                         <option selected>กรุณาเลือกประเภทสินค้า</option>
                         <option value="1">อาหาร</option>
                         <option value="2">เครื่องดื่ม</option>
