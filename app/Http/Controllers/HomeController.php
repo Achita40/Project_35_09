@@ -11,8 +11,13 @@ class HomeController extends Controller
 
     public function index()
     {
-        $products = Products::all();
-        return view('frontend.index', compact('products'));
+        return view(
+            'frontend.index',
+            [
+                'products' => Products::paginate(8),
+                'product_popular' => Products::all()->random(5),
+            ]
+        );
     }
 
 }

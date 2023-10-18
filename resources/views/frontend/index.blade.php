@@ -5,11 +5,11 @@
 @endsection
 
 @section('popular-item-1')
-    @include('frontend.popular-item-1')
+    @include('frontend.popular-item')
 @endsection
 
 @section('popular-item')
-    @include('frontend.popular-item')
+    @include('frontend.popular-item-1')
 @endsection
 
 @section('contack-item')

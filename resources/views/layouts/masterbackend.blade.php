@@ -20,6 +20,14 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+
+        body{
+            font-family: 'Sarabun', sans-serif;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -63,8 +71,16 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Products</span></a>
             </li>
+
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ route('cat.index') }}">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Category</span>
+                    </a>
+                </li>
 
                 <!-- Nav Item -category -->
             {{-- <li class="nav-item active">

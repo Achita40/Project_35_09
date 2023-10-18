@@ -12,23 +12,32 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>#</th>
+                            <th>Type Name</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
+
+                        @foreach ($categorys as $type)
+                            <tr>
+                                <td>
+                                    {{ $type->id }}
+                                </td>
+                                <td>
+                                    {{ $type->name }}
+                                </td>
+                                <td class="text-center">
+                                    <a href="{{ route('cat.edit', $type->id) }}" class="btn btn-warning btn-sm mx-1">
+                                        แก้ไข
+                                    </a>
+                                    <a href="{{ route('cat.delete', $type->id) }}" class="btn btn-danger btn-sm mx-1">
+                                        ลบ
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+
 
                     </tbody>
                 </table>

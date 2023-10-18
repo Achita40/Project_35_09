@@ -104,79 +104,108 @@
 
     <div class="container">
        <div class="col-lg-7 mx-auto text-center mt-7 mb-5">
-          <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">สินค้าขายดี</h5>
+          <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">สินค้าทั้งหมด</h5>
         </div>
-      <div class="row h-100 gx-2 mt-7">
-        <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
-          <div class="card card-span h-100">
-            <div class="position-relative"> <img class="img-fluid rounded-3 w-100" src="{{ asset('frontend/assets/img/gallery/12539.jpg') }}" alt="..." />
-              <div class="card-actions">
-                <div class="p-4">
-                  <div class="d-flex flex-between-center">
-                    <div><br/>
-                      <div class="fw-normal fs-1 mt-2"></div>
+
+        <div class="row h-100 gx-2 mt-7">
+
+            @foreach ($products as $product)
+                <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
+                    <div class="card card-span h-100">
+                        <div class="position-relative">
+                            <img
+                                class="img-fluid rounded-3"
+                                src="{{ asset('images/'.$product->image) }}"
+                                style="aspect-ratio: 4 / 3;"
+                                alt="..."
+                            />
+                            <div class="card-actions">
+                                <div class="p-4">
+                                    <div class="d-flex flex-between-center">
+                                        <div class="fw-normal fs-1 mt-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body px-0">
+                            <h5 class="fw-bold text-1000 text-truncate">
+                                {{ $product->product_name }}
+                            </h5>
+                            <span class="badge bg-success rounded-3 text-100 fw-bold fs-1">
+                                {{ '฿ ' . number_format($product->product_price, 2) }}
+                            </span>
+                        </div>
+
                     </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="card-body px-0">
-              <h5 class="fw-bold text-1000 text-truncate">กระปิเสวย</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
-          <div class="card card-span h-100">
-            <div class="position-relative"> <img class="img-fluid rounded-3 w-100" src="{{ asset('frontend/assets/img/gallery/12521.jpg') }}" alt="..." />
-              <div class="card-actions">
-                <div class="p-4">
-                  <div class="d-flex flex-between-center">
-                    <div class="d-block text-white fs-2"><br/>
+            @endforeach
+
+            {{-- <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
+                <div class="card card-span h-100">
+                    <div class="position-relative"> <img class="img-fluid rounded-3 w-100" src="{{ asset('frontend/assets/img/gallery/12521.jpg') }}" alt="..." />
+                        <div class="card-actions">
+                            <div class="p-4">
+                                <div class="d-flex flex-between-center">
+                                    <div class="d-block text-white fs-2"><br/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+
+                            <div class="card-body px-0">
+                                <h5 class="fw-bold text-1000 text-truncate">กะหรี่ปั๊บ</h5><span class="badge bg-soft-danger py-2 px-3"></span>
+                            </div>
                 </div>
-              </div>
-            </div>
-            <div class="card-body px-0">
-              <h5 class="fw-bold text-1000 text-truncate">กะหรี่ปั๊บ</h5><span class="badge bg-soft-danger py-2 px-3"></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
-          <div class="card card-span h-100">
-            <div class="position-relative"> <img class="img-fluid rounded-3 w-100" src="{{ asset('frontend/assets/img/gallery/12505.jpg') }}" alt="..." />
-              <div class="card-actions">
-                <div class="p-4">
-                  <div class="d-flex flex-between-center">
-                    <div class="d-block text-white fs-2"><br/>
-                    </div>
-                  </div>
+            </div> --}}
+
+            {{-- <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
+                <div class="card card-span h-100">
+                        <div class="position-relative"> <img class="img-fluid rounded-3 w-100" src="{{ asset('frontend/assets/img/gallery/12505.jpg') }}" alt="..." />
+                            <div class="card-actions">
+                                    <div class="p-4">
+                                        <div class="d-flex flex-between-center">
+                                            <div class="d-block text-white fs-2"><br/>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+
+                            <div class="card-body px-0">
+                                <h5 class="fw-bold text-1000 text-truncate">ขนมจีบ</h5><span class="badge bg-soft-danger py-2 px-3"></span>
+                            </div>
                 </div>
-              </div>
-            </div>
-            <div class="card-body px-0">
-              <h5 class="fw-bold text-1000 text-truncate">ขนมจีบ</h5><span class="badge bg-soft-danger py-2 px-3"></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
-          <div class="card card-span h-100">
-            <div class="position-relative"> <img class="img-fluid rounded-3 w-100" src="{{ asset('frontend/assets/img/gallery/0220.jpg') }}" alt="..." />
-              <div class="card-actions">
-                <div class="p-4">
-                  <div class="d-flex flex-between-center">
-                    <div class="d-block text-white fs-2"><br />
-                    </div>
-                  </div>
+            </div> --}}
+
+            {{-- <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
+                <div class="card card-span h-100">
+                        <div class="position-relative"> <img class="img-fluid rounded-3 w-100" src="{{ asset('frontend/assets/img/gallery/0220.jpg') }}" alt="..." />
+                            <div class="card-actions">
+                                <div class="p-4">
+                                    <div class="d-flex flex-between-center">
+                                        <div class="d-block text-white fs-2"><br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class="card-body px-0">
+                                <h5 class="fw-bold text-1000 text-truncate">กากหมูกระปุก</h5><span class="badge bg-soft-danger py-2 px-3"></span>
+                            </div>
                 </div>
-              </div>
-            </div>
-            <div class="card-body px-0">
-              <h5 class="fw-bold text-1000 text-truncate">กากหมูกระปุก</h5><span class="badge bg-soft-danger py-2 px-3"></span>
-            </div>
-          </div>
+            </div> --}}
+
         </div>
-      </div>
-    </div><!-- end of .container-->
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                {!! $products->links() !!}
+            </div>
+        </div>
+    </div>
+    <!-- end of .container-->
 
   </section>
